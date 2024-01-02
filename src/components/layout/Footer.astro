@@ -1,0 +1,35 @@
+---
+import { menuLinks, siteConfig } from "../../site.config.ts";
+
+const year = new Date().getFullYear();
+
+const commit = import.meta.env.CF_PAGES_COMMIT_SHA ?? '@next';
+---
+
+<footer
+	class="mt-8 flex w-full flex-col items-center justify-center gap-y-2 pb-4 text-center align-top font-semibold text-gray-600 dark:text-gray-400 sm:flex-row sm:justify-between sm:text-xs"
+>
+	<div class="me-0 sm:me-4">
+		Copyright &copy; {year}{" "}
+		{siteConfig.author}
+
+		<span class="border-l-gray-500 border-l-[1px] ml-2 pl-2">
+			{commit === "@next" ? commit : (<a href={`https://github.com/PenPow/Badges/commit/${commit}`} class="text-blue-500 hover:text-blue-700 underline underline-offset-2">{commit.substring(0, 8)}</a>)}
+		</span>
+	</div>
+	<nav
+		aria-label="More on this site"
+		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
+	>
+		{
+			menuLinks.map((link) => (
+				<a
+					href={link.path}
+					class="px-4 py-2 sm:px-2 sm:py-0 sm:hover:text-textColor sm:hover:underline"
+				>
+					{link.title}
+				</a>
+			))
+		}
+	</nav>
+</footer>

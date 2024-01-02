@@ -1,0 +1,46 @@
+---
+import { menuLinks } from "../../site.config.ts";
+import Divider from "../Divider.astro";
+
+import { Image } from 'astro:assets';
+
+import Logo from "../../assets/documentation/docs-rs/cozy-minimal.svg";
+
+const url = new URL(Astro.request.url);
+---
+
+<header id="main-header" class="group relative mb-5 flex items-center sm:ps-[4.5rem]">
+	<div class="grid grid-cols-1">
+		<a
+			href="/"
+			class="inline-flex items-center mb-4 sm:relative sm:inline-block"
+			aria-current={url.pathname === "/" ? "page" : false}
+		>
+			<!-- <Image class="me-3 mt-1 h-10 w-6 hidden sm:block text-6xl sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-20 sm:w-12" src={Logo} alt="The pretty badges logo"/> -->
+			<Image class="hidden sm:block sm:absolute start-[-4rem] mt-1" src={Logo} alt="The pretty badges logo"/>
+			<h1 class="text-7xl xs:text-3xl text-zinc-800 dark:text-zinc-100 font-bold sm:text-6xl">Pretty Badges</h1>
+		</a>
+		<nav
+			id="navigation-menu"
+			class="-ml-2.5 xs:ml-0 -inset-x-4 top-14 py-2 sm:-ms-4 sm:py-0"
+			aria-label="Main menu"
+		>
+			{
+				menuLinks.map((link) => (
+					<a
+						href={link.path}
+						class="px-4 py-4 sm:py-0"
+						aria-current={url.pathname === link.path ? "page" : false}
+						data-astro-prefetch
+					>
+						{link.title}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+</header>
+
+<div class="mt-0 mb-12 sm:mb-0 hidden sm:block">
+	<Divider />
+</div>

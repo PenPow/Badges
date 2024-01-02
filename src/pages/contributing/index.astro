@@ -1,0 +1,73 @@
+---
+import PageLayout from "../../layouts/Base.astro"
+import { Prism } from '@astrojs/prism';
+---
+
+<PageLayout meta={{ title: "Contributing" }}>
+	<section>
+		<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Contributing</h2>
+		<p class="mb-4 text-lg">Thank you for offering to contribute! Please review this page to understand how to contribute to this project.</p>
+	</section>
+	<section>
+		<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Creating a New Category</h2>
+		<p class="mb-4 text-lg">
+			Our badges fall under one of a few categories. When creating a new badge, fit it into the closest category. If none of the categories fit you can create a new one.
+
+			<ol class="ml-12 list-decimal">
+				<li class="text-lg my-1">Create a new folder for the category</li>
+				<li class="text-lg my-1">Add your category to the list by modifying <code class="inline">src/utils/categories.ts</code>. Insert a new item into the record with the key being the folder name, and the value being the description of the category.</li>
+				<li class="text-lg my-1">
+					Modify <code class="inline">src/utils/badges.ts</code> to create a new array to store this category's badges.
+
+					<Prism lang="ts" code=" // src/utils/badges.ts\n\n// replace [category] as appropriate\nconst [category]Assets = [] as const;") />
+
+					Then, modify the assets array to prefix your items
+
+					<Prism lang="ts" code="...prefixItems([category]Assets, '[folderName])" />
+				</li>
+			</ol>
+		</p>
+	</section>
+	<section>
+		<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Creating a New Badge</h2>
+		<p class="mb-4 text-lg">
+			Thank you for looking to create a new badge. To add a new badge follow these steps:
+
+			<ol class="ml-12 list-decimal">
+				<li class="text-lg my-1">Download the <a href="https://github.com/PenPow/badges/blob/v3/template/devinsbadges-template.fig" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">template</a> and upload to <a href="https://www.figma.com" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">Figma</a></li>
+				<li class="text-lg my-1">Follow the instructions to create, customise and export your icons</li>
+				<li class="text-lg my-1">
+					Determine which category the badges should fit in.
+					<ul>
+						<li class="ml-12 list-disc">
+							If it is distinct from all current categories, create a new folder for this category as explained above.
+						</li>
+					</ul>
+				</li>
+				<li class="text-lg my-1">Create a new folder for the badge inside of the category</li>
+				<li class="text-lg my-1">
+					Upload your badges to this folder for each size in the <code class="inline">.svg</code> format (other formats get generated at build time). Their names should be the badge size.
+
+					<br/>
+					<br/>
+					ℹ️ For badges requiring a singular and plural version, register tham as separate badges. Only include the minimal versions of the icon in the "singular" folder
+					<br/>
+					<br/>
+					Some projects share badges in their minimal designs. To prevent duplication, upload the minimal badges to the primary project, and add an override in <code class="inline">src/utils/overrides.ts</code> by inserting a new record into the object, where the key is the badge name and the value is a reference to another badge, formatted as <code class="inline">category/slug</code>. Place it in the correct order alphabetically.
+
+					<Prism lang="ts" code={'export const pathOverrides: Partial<Record<Slug, Asset>> = {\n\t"bitbucket-pipelines": "available/bitbucket",\n\t...\n}'} />
+				</li>
+				<li class="text-lg my-1">
+					Register your badge by editing <code class="inline">src/utils/badges.ts</code> by modifying the category's array to also include your badge name. This should be the name of the folder you created for it.
+
+					<br/>
+					<br/>
+					⚠️&nbsp;Do not use abbreviations in the badge name to help increase searchability.
+					<br/>
+					<br/>
+					If you need to override the automatically generated name, you can edit the switch statement in <code class="inline">src/utils/overrides.ts</code> to modify the project name. Add your new case based upon where it falls where it is rendered on the page.
+				</li>
+			</ol>
+		</p>
+	</section>
+</PageLayout>

@@ -1,0 +1,43 @@
+name: Badge Request
+description: Request a new badge be added
+labels: [badge request]
+body:
+  - type: input
+    id: description
+    attributes:
+      label: Badge Name
+      description: What is the company, service, or piece of software that you are looking to have a badge for
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: category
+    attributes:
+      label: Category
+      description: What category (or categories) would this badge fall under. Please elaborate further later if needed.
+      options:
+        - label: Available
+        - label: Built With
+        - label: Documentation
+        - label: Donate
+        - label: Requires
+        - label: Social
+        - label: Supported
+        - label: Translate
+        - label: Unsupported
+
+  - type: textarea
+    id: logo
+    validations:
+      required: true
+    attributes:
+      label: Logo
+      description: Please upload the logo/image to use. This should ideally be in the svg format
+
+  - type: textarea
+    id: context
+    validations:
+      required: false
+    attributes:
+      label: Further Context
+      description: If you have any further context you wish to add, please add it here.
