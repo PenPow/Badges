@@ -6,13 +6,6 @@ export type SiteConfig = {
 	ogLocale: string;
 };
 
-export type SiteMeta = {
-	title: string;
-	description?: string;
-	ogImage?: string | undefined;
-	articleDate?: string | undefined;
-};
-
 export const siteConfig: SiteConfig = {
 	author: "Joshua Clements",
 	title: "Pretty Badges",
