@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import { pathOverrides, getBadgeName } from '../utils/overrides';
+import type { Slug, Category, Size } from '../utils/types';
+import { format } from '../utils/badges';
+
+interface Props {
+	slug: Slug;
+	category: Category;
+	size: Size;
+}
+
+let { slug, category, size } = Astro.props;
+
+const originalCategory = category;
+
+const name = getBadgeName(slug, size);
+
+if(size.endsWith("minimal")) {
+	const override = pathOverrides[slug];
+
+	if(override) {
+		const [overrideCategory, overrideSlug] = override.split('/') as [Category, Slug];
+
+		slug = overrideSlug
+		category = overrideCategory;
+	}
+}
+
+const { default: badge } = await import(`../assets/${category}/${slug}/${size}.svg`);
+
+const baseUrl = `/badges/${originalCategory}/${slug}/${size}`;
+---
+
+<div class="my-4 grid grid-cols-1">
+	<Image src={badge} alt={name} class="w-72 mb-3 h-16 place-self-center pointer-events-none"  />
+	<p class="text-center">
+		<b class="text-xl text-zinc-900 dark:text-zinc-100 ">{name}</b>
+		<br/>
+		<a href={`${baseUrl}.${format[0]}`} class="text-blue-500 hover:text-blue-700">
+			<b class="text-md">{format[0].toUpperCase()}</b>
+		</a>
+		{format.slice(1).filter(format => format !== 'jpg').map(format => (
+			<span>•</span>
+			<a href={`${baseUrl}.${format}`} class="text-blue-500 hover:text-blue-700">
+				<b class="text-md">{format.toUpperCase()}</b>
+			</a>
+		))}
+	</p>
+</div>

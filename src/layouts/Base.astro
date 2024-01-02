@@ -1,0 +1,119 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import { Icon } from 'astro-icon/components'
+import { siteConfig } from "../site.config.ts";
+
+import "../styles/prism.scss";
+
+interface Props {
+	meta: {
+		title: string,
+		description?: string
+	};
+}
+
+const {
+	meta: { title, description = siteConfig.description },
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const titleSeparator = "•";
+const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
+---
+
+<html lang={siteConfig.lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>{siteTitle}</title>
+
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="canonical" href={canonicalURL} />
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#835c44">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="msapplication-TileColor" content="#835c44">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+		<meta name="title" content={siteTitle} />
+		<meta name="description" content={description} />
+
+		<meta name="theme-color" content="#683d23" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:site_name" content={siteConfig.title} />
+		<meta property="og:locale" content={siteConfig.ogLocale} />
+
+		<meta property="twitter:card" content="summary" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<meta name="generator" content={Astro.generator} />
+		
+		<ViewTransitions />
+		<script is:inline>
+			const STORAGE_KEY = "theme";
+
+			function toggleTheme(activeTheme) {
+				localStorage.setItem(STORAGE_KEY, activeTheme);
+				
+				document.documentElement.setAttribute("data-theme", activeTheme);
+				document.documentElement.classList.remove("light", "dark");
+				document.documentElement.classList.add(activeTheme);
+			}
+
+			const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+			toggleTheme(localStorage.getItem(STORAGE_KEY) ?? (prefersDarkMode.matches ? 'dark' : 'light'));
+
+			function listenForButton() {
+				const themeButton = document.querySelector("#themeswitcher");
+					if(themeButton) themeButton.addEventListener("click", () => {
+						const activeTheme = localStorage.getItem(STORAGE_KEY) === 'dark' ? 'light' : 'dark';
+
+						toggleTheme(activeTheme)
+				});
+			}
+
+			document.addEventListener("DOMContentLoaded", listenForButton)
+
+			document.addEventListener("astro:after-swap", () => {
+				toggleTheme(localStorage.getItem(STORAGE_KEY))
+				listenForButton()
+			})
+		</script>
+	</head>
+	<body>
+		<button id="themeswitcher" class="block lg:fixed bottom-0 top-0 right-0 left-0 h-12 w-12 ml-4 mt-4">
+			<Icon class="dark:hidden" name="heroicons:moon" width={48} height={48} />
+			<Icon class="hidden dark:block" name="heroicons:sun" width={48} height={48} />
+		</button>
+		<div class="max-w-3xl px-8 mt-8 lg:mt-24 mx-auto">
+			<Header />
+			<main id="main">
+				<slot />
+			</main>
+			<Footer />
+		</div>		
+	</body>
+</html>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+	:global(.dark) {
+		color-scheme: dark;
+	}
+</style>
