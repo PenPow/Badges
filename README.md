@@ -1,7 +1,7 @@
 <div align="center">
 	<br />
 	<p>
-		<a href="https://badges.penpow.dev"><img src="./src/assets/documentation/docs-rs/cozy-minimal.svg" width="626" alt="Pretty Badges"/></a>
+		<a href="https://badges.penpow.dev"><img src="./src/assets/documentation/docs-rs/cozy-minimal.svg" width="512" alt="Pretty Badges"/></a>
 	</p>
 	<h1>Pretty Badges</h1>
 	<img alt="Deployed on Cloudflare Pages" src="./src/assets/built-with/cloudflare-pages/cozy.svg" />
