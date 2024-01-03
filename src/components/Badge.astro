@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import { pathOverrides, getBadgeName } from '../utils/overrides';
 import type { Slug, Category, Size } from '../utils/types';
-import { format } from '../utils/badges';
+import { format, heights } from '../utils/badges';
 
 interface Props {
 	slug: Slug;
@@ -33,7 +33,7 @@ const baseUrl = `/badges/${originalCategory}/${slug}/${size}`;
 ---
 
 <div class="my-4 grid grid-cols-1">
-	<Image src={badge} alt={name} class="mb-3 max-h-16 place-self-center pointer-events-none"  />
+	<Image src={badge} alt={name} height={heights[size]} class="mb-3 max-h-16 place-self-center pointer-events-none"  />
 	<p class="text-center">
 		<b class="text-xl text-zinc-900 dark:text-zinc-100 ">{name}</b>
 		<br/>
