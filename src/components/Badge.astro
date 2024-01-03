@@ -37,12 +37,12 @@ const baseUrl = `/badges/${originalCategory}/${slug}/${size}`;
 	<p class="text-center">
 		<b class="text-xl text-zinc-900 dark:text-zinc-100 ">{name}</b>
 		<br/>
-		<a href={`${baseUrl}.${format[0]}`} class="text-blue-500 hover:text-blue-700">
+		<a href={`${baseUrl}.${format[0]}`} class="text-blue-500 hover:text-blue-700" target="_blank">
 			<b class="text-md">{format[0].toUpperCase()}</b>
 		</a>
 		{format.slice(1).filter(format => format !== 'jpg').map(format => (
 			<span>•</span>
-			<a href={`${baseUrl}.${format}`} class="text-blue-500 hover:text-blue-700">
+			<a href={`${baseUrl}.${format}`} class="text-blue-500 hover:text-blue-700" target="_blank">
 				<b class="text-md">{format.toUpperCase()}</b>
 			</a>
 		))}

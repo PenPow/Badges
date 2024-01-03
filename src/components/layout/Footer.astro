@@ -14,7 +14,7 @@ const commit = import.meta.env.CF_PAGES_COMMIT_SHA ?? '@next';
 		{siteConfig.author}
 
 		<span class="border-l-gray-500 border-l-[1px] ml-2 pl-2">
-			{commit === "@next" ? commit : (<a href={`https://github.com/PenPow/Badges/commit/${commit}`} class="text-blue-500 hover:text-blue-700 underline underline-offset-2">{commit.substring(0, 8)}</a>)}
+			{commit === "@next" ? commit : (<a href={`https://github.com/PenPow/Badges/commit/${commit}`} target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">{commit.substring(0, 8)}</a>)}
 		</span>
 	</div>
 	<nav
