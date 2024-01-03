@@ -7,11 +7,14 @@ import compactBadge from "../assets/available/git/compact.svg";
 import compactMinimalBadge from "../assets/available/git/compact-minimal.svg";
 ---
 
-<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Badge Types</h2>
+<div class="flex items-center">
+	<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Badge Types</h2>
+	<div class="h-[1px] grow bg-black/10 dark:bg-white/40 mt-3 mx-4" />
+</div>
 <div class="grid grid-cols-[1.25fr_2fr] items-center gap-6 my-4">
 	<Image src={cozyBadge} alt="A cozy badge" />
 	<p>
-		<a href="/badges/cozy" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">
+		<a href="/badges/cozy" class="text-blue-500 hover:text-blue-600 underline underline-offset-4">
 			<b class="text-xl">Cozy</b></a>
 		<br/>
 		Cozy badges are the largest and take up two lines
@@ -20,7 +23,7 @@ import compactMinimalBadge from "../assets/available/git/compact-minimal.svg";
 <div class="grid grid-cols-[1.25fr_2fr] items-center gap-6 my-4">
 	<Image src={compactBadge} alt="A compact badge" />
 	<p>
-		<a href="/badges/compact" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">
+		<a href="/badges/compact" class="text-blue-500 hover:text-blue-600 underline underline-offset-2">
 			<b class="text-xl">Compact</b></a>
 		<br/>
 		Compact badges are similar to cozy, except only a single line tall
@@ -29,7 +32,7 @@ import compactMinimalBadge from "../assets/available/git/compact-minimal.svg";
 <div class="grid grid-cols-[1.25fr_2fr] items-center gap-6 my-4">
 	<Image src={cozyMinimalBadge} alt="A cozy-minimal badge" />
 	<p>
-		<a href="/badges/cozy-minimal" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">
+		<a href="/badges/cozy-minimal" class="text-blue-500 hover:text-blue-600 underline underline-offset-2">
 			<b class="text-xl">Cozy Minimal</b></a>
 		<br/>
 		Minimal badges only display the icon, with no accompanying text. The cozy variant is larger.
@@ -38,7 +41,7 @@ import compactMinimalBadge from "../assets/available/git/compact-minimal.svg";
 <div class="grid grid-cols-[1.25fr_2fr] items-center gap-6 my-4">
 	<Image src={compactMinimalBadge} alt="A compact-minimal badge" />
 	<p>
-		<a href="/badges/compact-minimal" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">
+		<a href="/badges/compact-minimal" class="text-blue-500 hover:text-blue-600 underline underline-offset-2">
 			<b class="text-xl">Compact Minimal</b></a>
 		<br/>
 		Minimal badges only display the icon, with no accompanying text. The compact variant is smaller.

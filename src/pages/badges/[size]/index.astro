@@ -28,7 +28,10 @@ const filteredBadges = groupBy<BadgeDescriptor[], Category>(groupBy(badges, badg
 
 <PageLayout meta={{ title: `${capitalizeEachWord(size)} Badges` }}>
 	<section>
-		<h2 id="top" class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Usage</h2>
+		<div class="flex items-center">
+			<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Usage</h2>
+			<div class="h-[1px] grow bg-black/10 dark:bg-white/40 mt-3 mx-4" />
+		</div>
 		<p class="mb-4 text-lg">
 			The badges come in both a multitude of formats. The <code class="inline">.svg</code> format is preferred in all situations apart from where it is unsupported by the host platform.
 			
@@ -46,25 +49,31 @@ const filteredBadges = groupBy<BadgeDescriptor[], Category>(groupBy(badges, badg
 		</p>
 	</section>
 	<section>
-		<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Table of Contents</h2>
+		<div class="flex items-center">
+			<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Table of Contents</h2>
+			<div class="h-[1px] grow bg-black/10 dark:bg-white/40 mt-3 mx-4" />
+		</div>
 		<p class="mb-4 text-lg">
 			{Object.keys(categories).map((key) => (
 					<li class="ml-12 text-lg my-1/2">
-						<button data-ref={key} class="text-blue-500 hover:text-blue-700 underline underline-offset-2">{capitalizeEachWord(key)}</button>
+						<button data-ref={key} class="text-blue-500 hover:text-blue-600 underline underline-offset-2">{capitalizeEachWord(key)}</button>
 					</li>
 			))}
 		</p>
 	</section>
 	<section class="mt-6">
 		{[...filteredBadges.keys()].map((key) => (
-			<h2 id={key} class="text-zinc-800 dark:text-zinc-100 mt-4 mb-2 text-3xl font-bold">{capitalizeEachWord(key)}</h2>
+			<div class="flex items-center">
+				<h2 id={key} class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">{capitalizeEachWord(key)}</h2>
+				<div class="h-[1px] grow bg-black/10 dark:bg-white/40 mt-3 mx-4" />
+			</div>
 			<p class="mb-3 text-xl">{categories[key]}</p>
 			<div class="grid grid-cols-2 gap-2">
 				{filteredBadges.get(key)!.map((badge) => (
 					<Badge slug={badge.slug} category={badge.category} size={size} />
 				))}
 			</div>
-			<button data-ref="top" class="text-blue-500 hover:text-blue-700 underline underline-offset-2 text-2xl">⬆️ Back to Top</button>
+			<button data-ref="top" class="text-blue-500 hover:text-blue-600 underline underline-offset-2 text-2xl">⬆️ Back to Top</button>
 		))}
 	</section>
 </PageLayout>

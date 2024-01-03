@@ -5,11 +5,17 @@ import { Prism } from '@astrojs/prism';
 
 <PageLayout meta={{ title: "Contributing" }}>
 	<section>
-		<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Contributing</h2>
+		<div class="flex items-center">
+			<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Contributing</h2>
+			<div class="h-[1px] grow bg-black/10 dark:bg-white/40 mt-3 mx-4" />
+		</div>
 		<p class="mb-4 text-lg">Thank you for offering to contribute! Please review this page to understand how to contribute to this project.</p>
 	</section>
 	<section>
-		<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Creating a New Category</h2>
+		<div class="flex items-center">
+			<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Creating a New Category</h2>
+			<div class="h-[1px] grow bg-black/10 dark:bg-white/40 mt-3 mx-4" />
+		</div>
 		<p class="mb-4 text-lg">
 			Our badges fall under one of a few categories. When creating a new badge, fit it into the closest category. If none of the categories fit you can create a new one.
 
@@ -23,18 +29,21 @@ import { Prism } from '@astrojs/prism';
 
 					Then, modify the assets array to prefix your items
 
-					<Prism lang="ts" code="...prefixItems([category]Assets, '[folderName])" />
+					<Prism lang="ts" code="...prefixItems([category]Assets, '[folderName]')" />
 				</li>
 			</ol>
 		</p>
 	</section>
 	<section>
-		<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Creating a New Badge</h2>
+		<div class="flex items-center">
+			<h2 class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">Creating a New Badge</h2>
+			<div class="h-[1px] grow bg-black/10 dark:bg-white/40 mt-3 mx-4" />
+		</div>
 		<p class="mb-4 text-lg">
 			Thank you for looking to create a new badge. To add a new badge follow these steps:
 
 			<ol class="ml-12 list-decimal">
-				<li class="text-lg my-1">Download the <a href="https://github.com/PenPow/badges/blob/v3/template/devinsbadges-template.fig" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">template</a> and upload to <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-700 underline underline-offset-2">Figma</a></li>
+				<li class="text-lg my-1">Download the <a href="https://github.com/PenPow/badges/blob/v3/template/devinsbadges-template.fig" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 underline underline-offset-2">template</a> and upload to <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 underline underline-offset-2">Figma</a></li>
 				<li class="text-lg my-1">Follow the instructions to create, customise and export your icons</li>
 				<li class="text-lg my-1">
 					Determine which category the badges should fit in.

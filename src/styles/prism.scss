@@ -180,7 +180,7 @@ html[class=dark] {
 	pre[class*="language-"]::mozselection,
 	code[class*="language-"]::mozselection {
 		text-shadow: none;
-		background: #27384e;
+		background: #2e2e33;
 	}
 
 	@media print {
@@ -194,14 +194,14 @@ html[class=dark] {
 		padding: 1em;
 		margin: .5em 0;
 		overflow: auto;
-		background: #24292f;
+		background: #232327;
 	}
 
 	:not(pre) > code[class*="language-"] {
 		padding: .1em .3em;
 		border-radius: .3em;
 		color: #ffffff;
-		background: #8b949e;
+		background: #2e2e33;
 	}
 
 	/* Line highlighting */
@@ -220,7 +220,7 @@ html[class=dark] {
 		right: 0;
 		padding: inherit 0;
 		margin-top: 1em;
-		background: #27384e;
+		background: #2e2e33;
 		box-shadow: inset 5px 0 0 #1f6fea;
 		z-index: 0;
 		pointer-events: none;
@@ -268,7 +268,7 @@ html[class=dark] {
 	.language-css .token.string,
 	.style .token.string {
 		color: #79bffe;
-		background: #24292f;
+		background: #27272c;
 	}
 
 	.token.atrule,
