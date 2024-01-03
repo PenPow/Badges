@@ -2,7 +2,7 @@ import type { Category } from "./types";
 
 export const categories: Record<Category, string> = {
 	'available': 'Badges to display where your project is available on',
-	'built-with': 'Badges to display what your project was build with',
+	'built-with': 'Badges to display what your project was built with',
 	'documentation': 'Badges to show where you host your documentation',
 	'donate': 'Badges to display common donation platforms',
 	'requires': 'Badges to show libraries and software required for your project',
