@@ -1,8 +1,4 @@
 html[class=light] {
-	body {
-		@apply bg-[#f7f7f7];
-	}
-
 	/* General */
 	pre[class*="language-"],
 	code[class*="language-"] {
@@ -153,10 +149,6 @@ html[class=light] {
 }
 
 html[class=dark] {
-	body {
-		@apply bg-[#1f2328];
-	}
-
 	/* General */
 	pre[class*="language-"],
 	code[class*="language-"] {
