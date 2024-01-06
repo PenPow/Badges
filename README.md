@@ -1,9 +1,9 @@
 <div align="center">
 	<br />
 	<p>
-		<a href="https://badges.penpow.dev"><img src="./src/assets/documentation/docs-rs/cozy-minimal.svg" width="256" alt="Pretty Badges"/></a>
+		<a href="https://badges.penpow.dev"><img src="./src/assets/documentation/docs-rs/cozy-minimal.svg" width="256" alt="Fancy Badges"/></a>
 	</p>
-	<h1>Pretty Badges</h1>
+	<h1>Fancy Badges</h1>
 	<img alt="Deployed on Cloudflare Pages" src="./src/assets/built-with/cloudflare-pages/cozy.svg" />
 	<img alt="Built with Astro" src="./src/assets/built-with/astro/cozy.svg" />
 	<img alt="Built with TailwindCSS" src="./src/assets/built-with/tailwindcss/cozy.svg"/>
@@ -12,7 +12,7 @@
 
 ## About
 
-This is a fork of [Devin's Badges](https://intergrav.github.io/devins-badges-docs/) to continue maintaining and adding pretty badges that appeal to non-technical users
+This is a fork of [Devin's Badges](https://intergrav.github.io/devins-badges-docs/) to continue maintaining and adding fancy badges that appeal to non-technical users
 
 ## Contributing
 

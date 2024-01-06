@@ -8,7 +8,7 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
 	author: "Joshua Clements",
-	title: "Pretty Badges",
+	title: "Fancy Badges",
 	description: "A maintained fork of Devin's badges",
 	lang: "en-GB",
 	ogLocale: "en_GB",
