@@ -26,7 +26,7 @@ const url = new URL(Astro.request.url);
 				menuLinks.map((link) => (
 					<a
 						href={link.path}
-						class="px-4 py-4 text-lg sm:py-0 text-blue-500 hover:text-blue-600"
+						class="px-4 py-4 text-lg font-bold sm:py-0 text-blue-500 hover:text-blue-600"
 						aria-current={url.pathname === link.path ? "page" : false}
 						data-astro-prefetch
 					>
