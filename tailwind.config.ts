@@ -10,6 +10,6 @@ export default {
 			}
 		},
 	},
-	darkMode: 'class',
+	darkMode: 'selector',
 	plugins: [],
 } satisfies Config
