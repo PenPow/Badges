@@ -8,9 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint --ext .js,.astro src",
-    "pages:dev": "wrangler pages dev --compatibility-date=2023-12-18 -- astro dev",
-    "pages:deploy": "astro build && wrangler pages deploy ./dist"
+    "lint": "eslint --ext .js,.astro src"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
