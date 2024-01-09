@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js,.astro src"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.4",
+    "@astrojs/check": "^0.4.0",
     "@astrojs/prism": "^3.0.0",
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
