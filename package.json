@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
     "@iconify-json/heroicons": "^1.1.19",
-    "astro": "^4.1.2",
+    "astro": "^4.1.3",
     "astro-color-scheme": "^1.1.2",
     "astro-compress": "^2.2.7",
     "astro-icon": "^1.0.2",
