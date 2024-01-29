@@ -19,7 +19,7 @@
     "astro": "^4.2.1",
     "astro-color-scheme": "^1.1.2",
     "astro-compress": "^2.2.8",
-    "astro-icon": "^1.0.2",
+    "astro-icon": "^1.0.3",
     "astro-robots-txt": "^1.0.0",
     "sass": "^1.70.0",
     "sharp": "^0.33.2",
