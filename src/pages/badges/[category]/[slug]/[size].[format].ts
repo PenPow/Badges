@@ -14,6 +14,8 @@ const formats: Record<Format, `image/${string}`> = {
 	webp: "image/webp",
 }
 
+const svgRegex = /<svg width="(\d+)" height="(\d+)" [\S\d\s]*/
+
 export const GET: APIRoute = async ({ params }) => {
 	const format = params["format"] as Format;
 	let category = params["category"] as Category;
@@ -31,12 +33,13 @@ export const GET: APIRoute = async ({ params }) => {
 		}
 	}
 
+	const targetHeight = heights[size];
 
 	const img = await readFile(`src/assets/${category}/${slug}/${size}.svg`);
 
 	const isSVG = format === "svg";
 	if(!isSVG) {
-		const formatted = sharp(img).resize({ height: heights[size] });
+		const formatted = sharp(img).resize({ height: targetHeight });
 
 		// Set background to white if image doesn't support transparency
 		if(["jpeg", "jpg"].includes(format)) formatted.flatten({ background: "#FFFFFF" })
@@ -45,7 +48,19 @@ export const GET: APIRoute = async ({ params }) => {
 		return new Response(await formatted.toFormat(format).toBuffer(), { headers: { "Content-Type": formats[format] }});
 	}
 
-	return new Response(img, { headers: { "Content-Type": formats[format] }});
+	const svg = img.toString();
+
+	const [_, width, height] = svgRegex.exec(svg) as string[];
+	if(!width || !height) return new Response(img, { headers: { "Content-Type": formats[format] }});
+
+	const widthInt = Number.parseInt(width, 10);
+	const heightInt = Number.parseInt(height, 10);
+
+	const scaleFactor = targetHeight / heightInt;
+	if(Number.isNaN(scaleFactor)) throw new Error("Scale factor is NaN");
+
+	const newWidth = widthInt * scaleFactor;
+	return new Response(svg.replace(/<svg width="(\d+)" height="(\d+)"/, `<svg width="${newWidth}" height="${targetHeight}"`), { headers: { "Content-Type": formats[format] }});
 }
 
 export const prerender = true;
