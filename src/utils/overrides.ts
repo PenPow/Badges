@@ -40,7 +40,7 @@ export const pathOverrides: Partial<Record<Slug, Asset>> = {
 }
 
 export function getBadgeName(slug: Slug, size: Size): string {
-	let badgeName;
+	let badgeName: string;
 
     // god save the never-ending switch statement
 	// unfortunately, for performance reasons this is the best approach
