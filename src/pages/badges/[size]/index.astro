@@ -55,9 +55,9 @@ const filteredBadges = groupBy<BadgeDescriptor[], Category>(groupBy(badges, badg
 		</div>
 		<p class="mb-4 text-lg">
 			{Object.keys(categories).map((key) => (
-					<li class="ml-12 text-lg my-1/2">
-						<button data-ref={key} class="text-blue-500 hover:text-blue-600 underline underline-offset-2">{capitalizeEachWord(key)}</button>
-					</li>
+				<li class="ml-12 text-lg my-1/2">
+					<button data-ref={key} class="text-blue-500 hover:text-blue-600 underline underline-offset-2">{capitalizeEachWord(key)}</button>
+				</li>
 			))}
 		</p>
 	</section>
@@ -66,6 +66,7 @@ const filteredBadges = groupBy<BadgeDescriptor[], Category>(groupBy(badges, badg
 			<div class="flex items-center">
 				<h2 id={key} class="text-zinc-800 dark:text-zinc-100 mt-4 mb-3 text-3xl font-bold">{capitalizeEachWord(key)}</h2>
 				<div class="h-[1px] grow bg-black/10 dark:bg-white/40 mt-3 mx-4" />
+				<p class="ml-auto mt-5 text-zinc-800 dark:text-zinc-100 mb-3 text-lg font-semibold">{filteredBadges.get(key)!.length} Badges</p>
 			</div>
 			<p class="mb-3 text-xl">{categories[key]}</p>
 			<div class="grid grid-cols-2 gap-2">
